@@ -8,6 +8,7 @@ import "../Pages/Home.css"
 import Logout from "./Logout";
 
 
+
 const Home = () =>{
   const navigate = useNavigate();
   const handleReq = () => {
@@ -26,7 +27,7 @@ const Home = () =>{
     return (
 
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-        
+       
         <Container maxWidth="sm">
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>
@@ -42,6 +43,7 @@ const Home = () =>{
     <br/>
     <br/>
    <Logout/>
+ 
    <br/>
     <br/>
       <Button variant="primary" size="lg" className="Buttons" onClick={handleReq}>

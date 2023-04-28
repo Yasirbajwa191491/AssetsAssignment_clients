@@ -7,6 +7,7 @@ import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Logout from "./Logout";
+import Navigation from "./Navigation";
 const Approval = () => {
     const [data, setData] = useState([]);
    useEffect(() => {
@@ -23,7 +24,7 @@ const Approval = () => {
     }
     return(
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-        
+        <Navigation/>
         <Container maxWidth="sm">
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>

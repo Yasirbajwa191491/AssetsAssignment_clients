@@ -10,6 +10,7 @@ import axios from "axios";
 import Logout from "./Logout";
 
 import swal from 'sweetalert';
+import Navigation from "./Navigation";
 
 const ManageReq = () => {
   const [cd, setCd] = useState("");
@@ -131,7 +132,7 @@ const ManageReq = () => {
       
    
         <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-          
+          <Navigation/>
           <Container maxWidth="sm">
             <div className='req_container'>
            <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "20%", height: "auto" }}/>

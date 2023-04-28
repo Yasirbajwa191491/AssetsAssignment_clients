@@ -10,6 +10,7 @@ import { URL } from "../http";
 import {TextField} from "@material-ui/core";
 import "../Pages/RequestHist.css";
 import Logout from "./Logout";
+import Navigation from "./Navigation";
 const RequestHist = () => {
   const [usbdata, setUsbdata] = useState([]);
   const [cddata, setCddata] = useState([]);
@@ -21,32 +22,58 @@ const RequestHist = () => {
   const getusbData =async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/usbsubmission_list/" + id);
+    if(res.status===200){
     setUsbdata(res.data.data);
+    }
   }
   const getcdData =async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/cdsubmission_list/" + id);
+    if(res.status===200){
     setCddata(res.data.data);
+    }
   }
   const getinternetData =async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/internetsubmission_list/" + id);
+    if(res.status===200){
     setInternetdata(res.data.data);
+    }
   }
   const getusbDays = async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/usbdays_list/"+id);
-    setUsbdays(res.data.days);
-  }
+    if (res.status === 200) {
+      if (res.data.days && res.data.days.length) {
+        setUsbdays(res.data.days);
+      } else if (!res.data.days) {
+        setUsbdays("User hasn't requested for Usb Access");
+      }
+    }
+  };
+  
+  
   const getcdDays = async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/cddays_list/"+id);
-    setCddays(res.data.days);
+    if (res.status === 200) {
+      if (res.data.days && res.data.days.length) {
+      setCddays(res.data.days);
+      }else if (!res.data.days) {
+        setCddays("User hasn't requested for CD Access");
+      }
+    }
   }
   const getinternetDays = async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/internetdays_list/"+id);
+    if (res.status === 200) {
+      if (res.data.days && res.data.days.length) {
     setInternetdays(res.data.days);
+      }else if (!res.data.days) {
+        setInternetdays("User hasn't requested for Internet Access");
+      }
+    }
   }
   useEffect(() => {
     getusbData();
@@ -58,9 +85,11 @@ const RequestHist = () => {
   }, []);
     return (
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-        
+ 
+<Navigation/>
+
         <Container maxWidth="sm">
-        
+      
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>
          <div className='typography'>

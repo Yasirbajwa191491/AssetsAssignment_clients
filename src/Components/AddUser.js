@@ -5,7 +5,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { URL } from "../http";
 import Logout from './Logout';
-
+import Navigation from "./Navigation";
 const AddUser = () => {
  
 const [inputfname, setInputfname] = useState("");
@@ -54,7 +54,7 @@ const registerUser = async (e) => {
 }
 return (
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-
+<Navigation/>
 <Container maxWidth="sm">
 
 <div className='container'>

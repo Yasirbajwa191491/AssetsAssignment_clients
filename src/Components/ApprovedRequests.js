@@ -3,6 +3,7 @@ import { Container} from "@material-ui/core";
 import axios from 'axios';
 import { URL } from '../http';
 import { MDBDataTableV5 } from "mdbreact";
+import Navigation from './Navigation';
 
 
 const ApprovedRequests = () => {
@@ -32,6 +33,7 @@ const ApprovedRequests = () => {
     },[])
   return (
     <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
+      <Navigation/>
      <Container maxWidth="sm">
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>
