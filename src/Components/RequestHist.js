@@ -7,11 +7,16 @@ import {faRotateLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import { URL } from "../http";
+import {TextField} from "@material-ui/core";
 import "../Pages/RequestHist.css";
 const RequestHist = () => {
   const [usbdata, setUsbdata] = useState([]);
   const [cddata, setCddata] = useState([]);
   const [internetdata, setInternetdata] = useState([]);
+  const [usbdays, setUsbdays] = useState("");
+  const [cddays, setCddays] = useState("");
+  const [internetdays, setInternetdays] = useState("");
+
   const getusbData =async () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/usbsubmission_list/" + id);
@@ -27,10 +32,28 @@ const RequestHist = () => {
     const res = await axios.get(URL+"/internetsubmission_list/" + id);
     setInternetdata(res.data.data);
   }
+  const getusbDays = async () => {
+    const id = localStorage.getItem("User_id");
+    const res = await axios.get(URL+"/usbdays_list/"+id);
+    setUsbdays(res.data.days);
+  }
+  const getcdDays = async () => {
+    const id = localStorage.getItem("User_id");
+    const res = await axios.get(URL+"/cddays_list/"+id);
+    setCddays(res.data.days);
+  }
+  const getinternetDays = async () => {
+    const id = localStorage.getItem("User_id");
+    const res = await axios.get(URL+"/internetdays_list/"+id);
+    setInternetdays(res.data.days);
+  }
   useEffect(() => {
     getusbData();
     getcdData();
     getinternetData();
+    getusbDays();
+    getcdDays();
+    getinternetDays();
   }, []);
     return (
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
@@ -55,7 +78,10 @@ const RequestHist = () => {
         </div>
   </Button>
 <br/>
+<br/>
+
 <h3 style={{color: "white"}}> USB </h3>
+<TextField style={{ width: "500px"}} disabled value={`Current Status: ${usbdays}`} InputProps={{style: {color: "red"}}} />
 
 <MDBDataTableV5
   style={{ color: "#F1BC4C", "--bs-input-color": "white" }}
@@ -104,7 +130,7 @@ const RequestHist = () => {
         searchBottom={false}
       />
       <h3 style={{color: "white"}}> CD </h3>
-
+      <TextField style={{ width: "500px"}} disabled value={`Current Status: ${cddays}`} InputProps={{style: {color: "red"}}} />
 <MDBDataTableV5
   style={{ color: "#F1BC4C", "--bs-input-color": "white" }}
         hover
@@ -151,6 +177,7 @@ const RequestHist = () => {
         searchBottom={false}
       />
       <h3 style={{color: "white"}}> Internet </h3>
+      <TextField style={{ width: "500px"}} disabled value={`Current Status: ${internetdays}`} InputProps={{style: {color: "red"}}} />
       <MDBDataTableV5
   style={{ color: "#F1BC4C", "--bs-input-color": "white" }}
         hover
