@@ -12,6 +12,7 @@ const Logout = () => {
         localStorage.removeItem("UserType");
         localStorage.removeItem("User_id");
         localStorage.removeItem("bahrain-token");
+        localStorage.removeItem('user-name')
        
         swal({
             position: "center",
