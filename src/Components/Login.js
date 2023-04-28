@@ -33,6 +33,7 @@ if (res.data.message === "Login Success") {
   localStorage.setItem("UserType", res.data.UserType);
   localStorage.setItem("User_id",res.data.User_id);
   localStorage.setItem("bahrain-token",res.data.token);
+  localStorage.setItem('user-name',res.data.name)
 
   swal({
     position: "center",
