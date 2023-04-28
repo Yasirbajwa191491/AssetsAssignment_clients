@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from "react-router-dom";
 import "../Pages/Home.css"
 import Logout from "./Logout";
-
+import { useEffect } from "react";
 
 
 const Home = () =>{
@@ -23,7 +23,9 @@ const Home = () =>{
   const handle_reqhist = () => {
     navigate("/RequestHist")
   }
-
+useEffect(()=>{
+document.title='Logged- '+localStorage.getItem('user-name')
+},[])
     return (
 
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
