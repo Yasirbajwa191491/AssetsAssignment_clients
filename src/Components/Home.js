@@ -44,17 +44,27 @@ document.title='Logged- '+localStorage.getItem('user-name')
     <br/>
     <br/>
    <Logout/>
-   <br/>
-    <br/>
-      <Button variant="primary" size="lg" className="Buttons" onClick={handleReq}>
+   
+    {
+  localStorage.getItem("UserType")==='User'&&  
+  <> 
+  <br/>
+    <br/> 
+  <Button variant="primary" size="lg" className="Buttons" onClick={handleReq}>
      
         <div className="text">
             
         <FontAwesomeIcon icon={faArrowsRotate} size="xl" style={{"--fa-primary-color": "#8e8f90", "--fa-secondary-color": "#8e8f90", marginRight: "30px" }} />   Make a Request
         </div>
       </Button>
-      <br/>
-      <br/>
+      </>
+    }
+      
+   
+      {
+  localStorage.getItem("UserType")==='User'&& 
+<>
+<br/><br/>
       <Button variant="primary" size="lg" className="Buttons" onClick={handle_reqhist}>
      
         <div className="text">
@@ -62,17 +72,27 @@ document.title='Logged- '+localStorage.getItem('user-name')
         <FontAwesomeIcon icon={faRotateLeft} size="xl" style={{"--fa-primary-color": "#8e8f90", "--fa-secondary-color": "#8e8f90", marginRight: "30px"}} />   My Request History
         </div>
       </Button>
-
-      <br/>
-      <br/>
-      <Button variant="primary" size="lg" className="Buttons" onClick={handle_app}>
+      </>
+      }
      
-        <div className="text">
-            
-        <FontAwesomeIcon icon={faCircleCheck} size="xl" style={{color: "#707275", marginRight: "30px"}} />   My Approvals
-        </div>
-      </Button>
+      {
+  localStorage.getItem("UserType") !=='User'&&   
+  <> 
+  <br/>
       <br/>
+  <Button variant="primary" size="lg" className="Buttons" onClick={handle_app}>
+     
+     <div className="text">
+         
+     <FontAwesomeIcon icon={faCircleCheck} size="xl" style={{color: "#707275", marginRight: "30px"}} />   My Approvals
+     </div>
+   </Button>
+   </>
+}
+{
+  localStorage.getItem("UserType") !=='User'&&   
+  <> 
+  <br/>
       <br/>
       <Button variant="primary" size="lg" className="Buttons" onClick={handle_Add}>
      
@@ -81,7 +101,8 @@ document.title='Logged- '+localStorage.getItem('user-name')
         <FontAwesomeIcon icon={faUser}  size="xl" style={{color: "#707275", marginRight: "30px"}} />   Add New User
         </div>
       </Button>
-     
+     </>
+}
      
 </div>
 </Container>

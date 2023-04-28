@@ -3,7 +3,7 @@ import { Container} from "@material-ui/core";
 import { MDBDataTableV5 } from "mdbreact";
 import { useEffect,useState } from "react";
 import Button from 'react-bootstrap/Button';
-import {faRotateLeft } from '@fortawesome/free-solid-svg-icons';
+import {faRotateLeft,faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import { URL } from "../http";
@@ -81,7 +81,7 @@ const RequestHist = () => {
 <br/>
 
 <h3 style={{color: "white"}}> USB </h3>
-<TextField style={{ width: "500px"}} disabled value={`Current Status: ${usbdays}`} InputProps={{style: {color: "red"}}} />
+
 
 <MDBDataTableV5
   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}
@@ -129,8 +129,17 @@ const RequestHist = () => {
         searchTop = {false}
         searchBottom={false}
       />
+      {
+  usbdays !=='Request Pending' || usbdays !=='Request Expired' ?
+<div >
+  <h3 style={{color:'white',textAlign:'center'}}><FontAwesomeIcon icon={faCheck} size="xl" style={{color:'green'}}></FontAwesomeIcon> 90 Days of USB Access</h3>
+  <h3 style={{color:'white',textAlign:'center'}}>Days Left</h3>
+  <h2 style={{color:'white',marginLeft:'10px',textAlign:'center'}}>{usbdays}</h2>
+</div>:
+
+<TextField style={{ width: "500px"}} disabled value={`Current Status: ${usbdays}`} InputProps={{style: {color: "red"}}} />
+}<br/><br/>
       <h3 style={{color: "white"}}> CD </h3>
-      <TextField style={{ width: "500px"}} disabled value={`Current Status: ${cddays}`} InputProps={{style: {color: "red"}}} />
 <MDBDataTableV5
     style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}
 
@@ -177,8 +186,17 @@ const RequestHist = () => {
         searchTop = {false}
         searchBottom={false}
       />
+       {
+  cddays !=='Request Pending' || cddays !=='Request Expired' ?
+<div >
+  <h3 style={{color:'white',textAlign:'center'}}><FontAwesomeIcon icon={faCheck} size="xl" style={{color:'green'}}></FontAwesomeIcon> 90 Days of CD Access</h3>
+  <h3 style={{color:'white',textAlign:'center'}}>Days Left</h3>
+  <h2 style={{color:'white',marginLeft:'10px',textAlign:'center'}}>{cddays}</h2>
+</div>:
+
+<TextField style={{ width: "500px"}} disabled value={`Current Status: ${cddays}`} InputProps={{style: {color: "red"}}} />
+}<br/><br/>
       <h3 style={{color: "white"}}> Internet </h3>
-      <TextField style={{ width: "500px"}} disabled value={`Current Status: ${internetdays}`} InputProps={{style: {color: "red"}}} />
       <MDBDataTableV5
     style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}
 
@@ -225,6 +243,16 @@ const RequestHist = () => {
         searchTop = {false}
         searchBottom={false}
       />
+       {
+  internetdays !=='Request Pending' || internetdays !=='Request Expired' ?
+<div >
+  <h3 style={{color:'white',textAlign:'center'}}><FontAwesomeIcon icon={faCheck} size="xl" style={{color:'green'}}></FontAwesomeIcon> 90 Days of Internet Access</h3>
+  <h3 style={{color:'white',textAlign:'center'}}>Days Left</h3>
+  <h2 style={{color:'white',marginLeft:'10px',textAlign:'center'}}>{internetdays}</h2>
+</div>:
+
+<TextField style={{ width: "500px"}} disabled value={`Current Status: ${internetdays}`} InputProps={{style: {color: "red"}}} />
+}<br/><br/>
 </Container>
 </div>
 );
