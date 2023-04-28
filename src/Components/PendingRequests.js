@@ -7,7 +7,7 @@ import { MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import swal from 'sweetalert';
-
+import Navigation from './Navigation';
 const PendingRequests = () => {
     const [data, setData] = useState([]);
     const [data1, setData1] = useState([]);
@@ -61,7 +61,15 @@ const PendingRequests = () => {
                             timer: 3000,
                            
                           });  
-                      } 
+                      } else{
+                        swal({
+                          position: "center",
+                          icon: "error",
+                          title: response.data.error,
+                          timer: 3000,
+                         
+                        });   
+                      }
                 }
               },
               {
@@ -102,7 +110,15 @@ const PendingRequests = () => {
                             timer: 3000,
                            
                           });  
-                      } 
+                      } else{
+                        swal({
+                          position: "center",
+                          icon: "error",
+                          title: response.data.error,
+                          timer: 3000,
+                         
+                        });   
+                      }
                 }
               },
               {
@@ -143,7 +159,15 @@ const PendingRequests = () => {
                             timer: 3000,
                            
                           });  
-                      } 
+                      } else{
+                        swal({
+                          position: "center",
+                          icon: "error",
+                          title: response.data.error,
+                          timer: 3000,
+                         
+                        });   
+                      }
                 }
               },
               {
@@ -159,6 +183,7 @@ const PendingRequests = () => {
     },[])
   return (
     <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
+      <Navigation/>
      <Container maxWidth="sm">
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>

@@ -44,7 +44,7 @@ const RequestHist = () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/usbdays_list/"+id);
     if (res.status === 200) {
-      if (res.data.days && res.data.days.length) {
+      if (res.data.days) {
         setUsbdays(res.data.days);
       } else if (!res.data.days) {
         setUsbdays("User hasn't requested for Usb Access");
@@ -57,7 +57,7 @@ const RequestHist = () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/cddays_list/"+id);
     if (res.status === 200) {
-      if (res.data.days && res.data.days.length) {
+      if (res.data.days) {
       setCddays(res.data.days);
       }else if (!res.data.days) {
         setCddays("User hasn't requested for CD Access");
@@ -68,7 +68,7 @@ const RequestHist = () => {
     const id = localStorage.getItem("User_id");
     const res = await axios.get(URL+"/internetdays_list/"+id);
     if (res.status === 200) {
-      if (res.data.days && res.data.days.length) {
+      if (res.data.days) {
     setInternetdays(res.data.days);
       }else if (!res.data.days) {
         setInternetdays("User hasn't requested for Internet Access");
@@ -115,8 +115,8 @@ const RequestHist = () => {
 <br/>
 
 <h3 style={{color: "white"}}> USB </h3>
-<TextField style={{ width: "500px"}} disabled value={`Current Status: ${usbdays}`} InputProps={{style: {color: "red"}}} />
-
+{/* <TextField style={{ width: "500px"}} disabled value={`Current Status: ${usbdays}`} InputProps={{style: {color: "red"}}} /> */}
+{/* <h3 style={{color: "white"}}>  </h3> */}
 <MDBDataTableV5
   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}
         hover

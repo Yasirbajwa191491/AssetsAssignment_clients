@@ -1,5 +1,5 @@
 import { TextField, Container, Button} from '@material-ui/core';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../Pages/AddUser.css";
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -35,6 +35,12 @@ const registerUser = async (e) => {
     timer: 3000,
    
   });
+  setInputfname("");
+  setInputlname("");
+  setInputemail("");
+  setInputpassword("");
+  setInputcpassword("");
+  setUsertype("");
 }
   else{
    
@@ -46,6 +52,7 @@ const registerUser = async (e) => {
      
     });
   }
+
 
  
    
