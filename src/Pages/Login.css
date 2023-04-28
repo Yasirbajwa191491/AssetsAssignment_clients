@@ -1,0 +1,29 @@
+.textfield{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+.loginButton{
+    
+    background-color: #F1BC4C !important;
+    
+}
+.typography{
+    color: white;
+    margin-top: 40px;
+
+    
+}
+.container{
+    display: flex;
+    margin-left: 110px;
+
+}
+.small-text {
+    font-size: 10px;
+    margin-left: 50px;
+    
+  }
+  .large-text {
+    font-size: 24px;
+  }
+  

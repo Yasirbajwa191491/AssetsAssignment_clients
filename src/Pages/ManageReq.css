@@ -1,0 +1,74 @@
+.req_container{
+    display: flex;
+    margin-left: 500px;
+}
+.req_Buttons{
+   
+    width: 300px;
+    height: 50px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-left: 80px;
+}
+.req_option {
+    cursor: pointer;
+    display: block;
+    margin-left: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #B2B7D3;
+  }
+.req_text{
+    color:#B2B7D3;
+    font-size: 20px;
+    float: left;
+}
+.req_text1{
+    color: white;
+    font-size: 20px;
+    float: left;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.req_page{
+    margin-left: 500px;
+}
+.req_option input[type="radio"] {
+    display: none;
+  }
+  .req_option input[type="radio"]:checked + * {
+    color: #E2B24B;
+  }
+  .req_option input[type="radio"]:checked + *::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    background-color: #E2B24B;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+  .send_button{
+    background-color: #F0BB49;
+    border-radius: 10px;
+    width: 180px;
+    margin-left: 100px;
+    margin-top: 5px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .send_text{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: solid;
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+  }
+  .signupbutton{
+    background-color: #F1BC4C !important;
+    border-radius: 10px;
+    height: 40px;
+    width: 130px;
+    cursor: pointer;
+   
+}
