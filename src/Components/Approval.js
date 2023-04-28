@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListCheck,faSpinner,faCircleXmark} from '@fortawesome/free-solid-svg-icons';
 import { useState,useEffect } from "react";
 import axios from "axios";
+import Logout from "./Logout";
 const Approval = () => {
     const [data, setData] = useState([]);
    useEffect(() => {
@@ -33,6 +34,9 @@ const Approval = () => {
   <span className='small-text'>HUMAN RESOURCES</span>
 </div>
 </div>
+<br/>
+<br/>
+<Logout/>
 <br/>
 <br/>
 <Button variant="primary" size="lg" className="Buttons" onClick={handle_pend}>

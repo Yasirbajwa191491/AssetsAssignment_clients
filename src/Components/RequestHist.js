@@ -9,6 +9,7 @@ import axios from "axios";
 import { URL } from "../http";
 import {TextField} from "@material-ui/core";
 import "../Pages/RequestHist.css";
+import Logout from "./Logout";
 const RequestHist = () => {
   const [usbdata, setUsbdata] = useState([]);
   const [cddata, setCddata] = useState([]);
@@ -59,6 +60,7 @@ const RequestHist = () => {
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
         
         <Container maxWidth="sm">
+        
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>
          <div className='typography'>
@@ -69,6 +71,9 @@ const RequestHist = () => {
   <span className='small-text'>HUMAN RESOURCES</span>
 </div>
 </div>
+<br/>
+<Logout/>
+<br/>
 <br/>
 <Button variant="primary" size="lg" className="Buttons1" disabled>
      
