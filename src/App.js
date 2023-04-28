@@ -9,7 +9,7 @@ import Approval from './Components/Approval';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequestHist from './Components/RequestHist';
-import { useEffect } from 'react';
+import ApprovedRequests from './Components/ApprovedRequests';
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       <>
       <Route path="/Home" element={<Home />} />
       <Route path="/Request" element={<ManageReq />} />
+      <Route path="/ApprovedRequests" element={<ApprovedRequests />} />
       <Route path="/AddUser" element={<AddUser />} />
       <Route path="/Approval" element={<Approval />} />
       <Route path='/RequestHist' element = {<RequestHist/>} />
