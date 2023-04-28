@@ -44,8 +44,9 @@ const Approval = () => {
 <Button variant="primary" size="lg" className="Buttons" onClick={handle_pend}>
      
      <div className="text">
-         
+     <Link to='/PendingRequests' style={{color:'#a9a9a9',textDecoration:'none'}}>           
      <FontAwesomeIcon icon={faSpinner}  size="xl" style={{"--fa-primary-color": "#8e8f90", "--fa-secondary-color": "#8e8f90", marginRight: "30px" }} />   Pending Requests
+    </Link>
      </div>
    </Button>
    <br/>
@@ -65,9 +66,9 @@ const Approval = () => {
    <Button variant="primary" size="lg" className="Buttons" onClick={handle_pend}>
      
      <div className="text">
-     
+     <Link to='/RejectedRequests' style={{color:'#a9a9a9',textDecoration:'none'}}>  
      <FontAwesomeIcon icon={faCircleXmark}  size="xl" style={{"--fa-primary-color": "#8e8f90", "--fa-secondary-color": "#8e8f90", marginRight: "30px" }} />   Rejected Requests
-     
+     </Link>
      </div>
    </Button>
 </Container>

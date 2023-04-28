@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RequestHist from './Components/RequestHist';
 import ApprovedRequests from './Components/ApprovedRequests';
+import RejectedRequests from './Components/RejectedRequests';
+import PendingRequests from './Components/PendingRequests';
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
       <Route path="/Home" element={<Home />} />
       <Route path="/Request" element={<ManageReq />} />
       <Route path="/ApprovedRequests" element={<ApprovedRequests />} />
+      <Route path="/RejectedRequests" element={<RejectedRequests />} />
+      <Route path="/PendingRequests" element={<PendingRequests />} />
       <Route path="/AddUser" element={<AddUser />} />
       <Route path="/Approval" element={<Approval />} />
       <Route path='/RequestHist' element = {<RequestHist/>} />
