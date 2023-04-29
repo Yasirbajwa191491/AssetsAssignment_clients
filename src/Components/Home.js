@@ -1,4 +1,3 @@
-
 import { Container} from "@material-ui/core";
 import Button from 'react-bootstrap/Button';
 import { faArrowsRotate, faRotateLeft,faCircleCheck,faUser } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import "../Pages/Home.css"
 import Logout from "./Logout";
 import { useEffect } from "react";
-
 
 const Home = () =>{
   const navigate = useNavigate();
@@ -29,7 +27,7 @@ document.title='Logged- '+localStorage.getItem('user-name')
     return (
 
 <div className='head' style={{ background: '#1A2B63', minHeight: '100vh' }}>
-       
+        
         <Container maxWidth="sm">
           <div className='home_container'>
          <img src="/images/icon.png" alt="Logo" style={{ maxWidth: "25%", height: "auto" }}/>

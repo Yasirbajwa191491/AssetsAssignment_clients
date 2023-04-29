@@ -203,22 +203,24 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
-          <th scope='col' style={{minWidth:'150px'}}>Starting Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>End Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Submission Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Status</th>
-          <th scope='col' style={{minWidth:'150px'}}>Action</th>
+          <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>End Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
+          <th scope='col' style={{minWidth:'150px'}}>Requested By</th>
+          <th scope='col' style={{minWidth:'100px'}}>Status</th>
+          <th scope='col' style={{minWidth:'100px'}}>Action</th>
         </tr>
       </MDBTableHead>
       <MDBTableBody>
       {
         data.map((curEle)=>{
           return  <tr key={curEle._id}>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.StartingDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.EndDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.Status}</td>
-          <td style={{minWidth:'150px',textAlign:'center',display:'flex'}}>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
+          <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandlerUSB(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
               <i className='fas fa-times'>Approve</i>
             </MDBBtn>
@@ -240,22 +242,24 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
-          <th scope='col' style={{minWidth:'150px'}}>Starting Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>End Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Submission Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Status</th>
-          <th scope='col' style={{minWidth:'150px'}}>Action</th>
+          <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>End Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
+          <th scope='col' style={{minWidth:'150px'}}>Requested By</th>
+          <th scope='col' style={{minWidth:'100px'}}>Status</th>
+          <th scope='col' style={{minWidth:'100px'}}>Action</th>
         </tr>
       </MDBTableHead>
       <MDBTableBody>
       {
         data1.map((curEle)=>{
           return  <tr key={curEle._id}>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.StartingDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.EndDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.Status}</td>
-          <td style={{minWidth:'150px',textAlign:'center',display:'flex'}}>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
+          <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandler(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
               <i className='fas fa-times'>Approve</i>
             </MDBBtn>
@@ -277,22 +281,24 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
-          <th scope='col' style={{minWidth:'150px'}}>Starting Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>End Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Submission Date</th>
-          <th scope='col' style={{minWidth:'150px'}}>Status</th>
-          <th scope='col' style={{minWidth:'150px'}}>Action</th>
+          <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>End Date</th>
+          <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
+          <th scope='col' style={{minWidth:'150px'}}>Requested By</th>
+          <th scope='col' style={{minWidth:'100px'}}>Status</th>
+          <th scope='col' style={{minWidth:'100px'}}>Action</th>
         </tr>
       </MDBTableHead>
       <MDBTableBody>
       {
         data2.map((curEle)=>{
           return  <tr key={curEle._id}>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.StartingDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.EndDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.Status}</td>
-          <td style={{minWidth:'150px',textAlign:'center',display:'flex'}}>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
+          <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandlerInternet(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
               <i className='fas fa-times'>Approve</i>
             </MDBBtn>

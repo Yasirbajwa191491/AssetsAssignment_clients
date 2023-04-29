@@ -84,6 +84,10 @@ const ApprovedRequests = () => {
               label:"Status",
               field:"status"
             },
+            {
+              label:"Approved By",
+              field:"approvedby"
+            },
 
            ],
            rows: data.map((items) => {
@@ -92,7 +96,9 @@ const ApprovedRequests = () => {
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
-              status:items.Status
+              status:items.Status,
+              approvedby:items.ApproveBy
+
             
               
             };
@@ -139,6 +145,10 @@ const ApprovedRequests = () => {
               label:"Status",
               field:"status"
             },
+            {
+              label:"Approved By",
+              field:"approvedby"
+            },
 
            ],
            rows: data1.map((items) => {
@@ -147,7 +157,8 @@ const ApprovedRequests = () => {
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
-              status:items.Status
+              status:items.Status,
+              approvedby:items.ApproveBy
             
               
             };
@@ -193,6 +204,11 @@ const ApprovedRequests = () => {
             {
               label:"Status",
               field:"status"
+            }, 
+            {
+              label:"Approved By",
+              field:"approvedby",
+              
             },
 
            ],
@@ -202,7 +218,8 @@ const ApprovedRequests = () => {
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
-              status:items.Status
+              status:items.Status,
+              approvedby:items.ApproveBy
             
               
             };
