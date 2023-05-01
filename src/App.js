@@ -12,7 +12,7 @@ import RequestHist from './Components/RequestHist';
 import ApprovedRequests from './Components/ApprovedRequests';
 import RejectedRequests from './Components/RejectedRequests';
 import PendingRequests from './Components/PendingRequests';
-
+import ViewUsers from './Components/ViewUsers';
 
 function App() {
 
@@ -35,6 +35,7 @@ function App() {
       <Route path="/AddUser" element={<AddUser />} />
       <Route path="/Approval" element={<Approval />} />
       <Route path='/RequestHist' element = {<RequestHist/>} />
+      <Route path='/ViewUsers' element = {<ViewUsers/>} />
       </>
       
  

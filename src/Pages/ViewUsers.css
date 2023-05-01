@@ -1,0 +1,22 @@
+
+  .Modal {
+    position: absolute;
+    top: 40px;
+    left: 500px;
+    right: 500px;
+    bottom: 40px;
+    background-color: #FFFF00;
+    border-radius: 15px;
+  }  
+  .button{
+    margin-right: 15px;
+    background-color: lightgray;
+    margin-left: 20px;
+    width: 100px;
+  }
+  .button1{
+    
+    background-color: red;
+    margin-left: 20px;
+    width: 100px;
+  }

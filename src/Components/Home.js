@@ -1,6 +1,6 @@
 import { Container} from "@material-ui/core";
 import Button from 'react-bootstrap/Button';
-import { faArrowsRotate, faRotateLeft,faCircleCheck,faUser } from '@fortawesome/free-solid-svg-icons';
+import { faArrowsRotate, faRotateLeft,faCircleCheck,faUser,faStreetView } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from "react-router-dom";
 import "../Pages/Home.css"
@@ -20,6 +20,9 @@ const Home = () =>{
   }
   const handle_reqhist = () => {
     navigate("/RequestHist")
+  }
+  const handle_viewuser = () => {
+    navigate("/ViewUsers")
   }
 useEffect(()=>{
 document.title='Logged- '+localStorage.getItem('user-name')
@@ -98,6 +101,20 @@ document.title='Logged- '+localStorage.getItem('user-name')
         <div className="text">
             
         <FontAwesomeIcon icon={faUser}  size="xl" style={{color: "#707275", marginRight: "30px"}} />   Add New User
+        </div>
+      </Button>
+     </>
+}
+{
+  localStorage.getItem("UserType") !=='User'&&   
+  <> 
+  <br/>
+      <br/>
+      <Button variant="primary" size="lg" className="Buttons" onClick={handle_viewuser}>
+     
+        <div className="text">
+            
+        <FontAwesomeIcon icon={faStreetView}  size="xl" style={{color: "#707275", marginRight: "30px"}} />   View User
         </div>
       </Button>
      </>

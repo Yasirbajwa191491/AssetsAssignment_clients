@@ -104,7 +104,7 @@ const ApprovedRequests = () => {
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>
@@ -158,13 +158,14 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
+              
               approvedby:items.ApproveBy
             
               
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>
@@ -219,13 +220,13 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              approvedby:items.ApproveBy
+              approvedby:items.ApproveBy,
             
               
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>

@@ -82,7 +82,7 @@ if(localStorage.getItem("bahrain-token")){
          <br/>
          <br/>
           <TextField className='textfield'
-            label="Username"
+            label="Email"
             type="email"
             variant="filled"
             fullWidth

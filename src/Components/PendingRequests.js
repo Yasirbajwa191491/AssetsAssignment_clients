@@ -41,7 +41,7 @@ const PendingRequests = () => {
                     let response=await axios.patch(URL+"/cd/approval",{
                         _id:id,User_id:localStorage.getItem('User_id'),Status:status
                       }) 
-                      console.log(response,'res');
+                     
                       if(response.data.message==='CD Approved'){
                         allApprovedRequests()
                         swal({
@@ -218,7 +218,7 @@ const PendingRequests = () => {
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.userdata[0].email}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
           <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandlerUSB(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
@@ -257,7 +257,7 @@ const PendingRequests = () => {
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.userdata[0].email}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
           <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandler(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
@@ -278,7 +278,7 @@ const PendingRequests = () => {
 <div style={{marginTop:'10px'}}>
 <h3 style={{color: "white"}}> Internet </h3>    
 
-<MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
+<MDBTable align='middle'  style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}  >
       <MDBTableHead light>
         <tr>
           <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
@@ -296,7 +296,7 @@ const PendingRequests = () => {
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
-          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID}</td>
+          <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.userdata[0].email}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.Status}</td>
           <td style={{minWidth:'100px',textAlign:'center',display:'flex'}}>
             <MDBBtn color='link'  onClick={()=>statusHandlerInternet(curEle._id,'Approved')} style={{backgroundColor:'yellow',color:'black',minWidth:'100px',borderRadius:'30px',height:'30px'}}>
@@ -312,6 +312,7 @@ const PendingRequests = () => {
         
        
       </MDBTableBody>
+ 
     </MDBTable>
 
 </div>

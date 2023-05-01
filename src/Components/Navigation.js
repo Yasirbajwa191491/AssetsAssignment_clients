@@ -16,15 +16,17 @@ return(
     style={{
       width: "100px",
       marginRight: "10px",
+      marginTop: "20px",
       cursor: "pointer",
       height: "30px",
       fontSize: "20px",
+       position: "fixed",
     }}
     onClick={handleBack}
   >
     Back
   </Button>
-  
+  <br/>
   <Button
     style={{
  
@@ -32,7 +34,9 @@ return(
       cursor: "pointer",
       height:"30px",
       fontSize: "20px",
-      marginTop: "20px"
+      marginTop: "20px",
+      position: "fixed",
+      marginTop: "40px",
     }}
     onClick={handleHome}
   >

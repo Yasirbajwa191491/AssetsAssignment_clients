@@ -99,7 +99,7 @@ const RejectedRequests = () => {
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>
@@ -155,7 +155,7 @@ const RejectedRequests = () => {
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>
@@ -211,7 +211,7 @@ const RejectedRequests = () => {
             };
           }),
         }}
-        searchTop = {false}
+        searchTop = {true}
         searchBottom={false}
       />
 </div>
