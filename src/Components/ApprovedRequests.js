@@ -97,7 +97,7 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              approvedby:items.ApproveBy
+              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email
 
             
               
@@ -159,7 +159,7 @@ const ApprovedRequests = () => {
               appdate:items.ApprovalDate,
               status:items.Status,
               
-              approvedby:items.ApproveBy
+              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email
             
               
             };
@@ -220,7 +220,7 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              approvedby:items.ApproveBy,
+              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email,
             
               
             };

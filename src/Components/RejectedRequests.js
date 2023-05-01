@@ -92,7 +92,7 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy,
+              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
               status:items.Status
             
               
@@ -148,7 +148,7 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy,
+              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
               status:items.Status
             
               
@@ -204,7 +204,7 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy,
+              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
               status:items.Status
             
               
