@@ -88,6 +88,10 @@ const ApprovedRequests = () => {
               label:"Approved By",
               field:"approvedby"
             },
+            {
+              label:"Requested By",
+              field:"requestedby"
+            },
 
            ],
            rows: data.map((items) => {
@@ -97,7 +101,8 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email
+              approvedby:items.ApproveBy+' - '+items?.userdata?.email,
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email
 
             
               
@@ -149,7 +154,10 @@ const ApprovedRequests = () => {
               label:"Approved By",
               field:"approvedby"
             },
-
+            {
+              label:"Requested By",
+              field:"requestedby"
+            },
            ],
            rows: data1.map((items) => {
             return {
@@ -158,8 +166,8 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              
-              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email,
+              approvedby:items.ApproveBy+' - '+items?.userdata?.email
             
               
             };
@@ -211,7 +219,10 @@ const ApprovedRequests = () => {
               field:"approvedby",
               
             },
-
+            {
+              label:"Requested By",
+              field:"requestedby"
+            },
            ],
            rows: data2.map((items) => {
             return {
@@ -220,7 +231,8 @@ const ApprovedRequests = () => {
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
               status:items.Status,
-              approvedby:items.ApproveBy+' - '+items?.userdata[0]?.email,
+              approvedby:items.ApproveBy+' - '+items?.userdata?.email,
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email
             
               
             };

@@ -82,6 +82,10 @@ const RejectedRequests = () => {
               width: 250,
             },
             {
+              label:"Requested By",
+              field:"requestedby"
+            },
+            {
               label:"Status",
               field:"status"
             },
@@ -92,8 +96,10 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
-              status:items.Status
+              appdate:items.RejectedBy+' - '+items?.userdata?.email,
+              status:items.Status,
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email
+
             
               
             };
@@ -138,6 +144,10 @@ const RejectedRequests = () => {
               width: 250,
             },
             {
+              label:"Requested By",
+              field:"requestedby"
+            },
+            {
               label:"Status",
               field:"status"
             },
@@ -148,8 +158,10 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
-              status:items.Status
+              appdate:items.RejectedBy+' - '+items?.userdata?.email,
+              status:items.Status,
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email
+
             
               
             };
@@ -194,6 +206,10 @@ const RejectedRequests = () => {
               width: 250,
             },
             {
+              label:"Requested By",
+              field:"requestedby"
+            },
+            {
               label:"Status",
               field:"status"
             },
@@ -204,8 +220,10 @@ const RejectedRequests = () => {
               startdate: items.StartingDate ,
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
-              appdate:items.RejectedBy+' - '+items?.userdata[0]?.email,
-              status:items.Status
+              appdate:items.RejectedBy+' - '+items?.userdata?.email,
+              status:items.Status,
+              requestedby:items.RequestUser?._id+' - '+items.RequestUser?.email
+
             
               
             };
