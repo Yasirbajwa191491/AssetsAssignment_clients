@@ -7,10 +7,16 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import swal from 'sweetalert';
 import Navigation from './Navigation';
+import ReactModal from "react-modal";
+import Button from 'react-bootstrap/Button';
+
 const PendingRequests = () => {
     const [data, setData] = useState([]);
     const [data1, setData1] = useState([]);
     const [data2, setData2] = useState([]);
+    const [myimage,setMyImage]=useState('')
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const allApprovedRequests=async()=>{
         try {
           const response=await axios.get(URL+"/usbpending_list")  
@@ -29,6 +35,9 @@ const PendingRequests = () => {
             console.log(error);
         }
     }
+    const closeModal = () => {
+      setModalIsOpen(false);
+    };
     const statusHandler=(id,status)=>{
         confirmAlert({
             title: 'Status Update',
@@ -202,6 +211,7 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
+          <th scope='col' ></th>
           <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
           <th scope='col' style={{minWidth:'100px'}}>End Date</th>
           <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
@@ -214,6 +224,7 @@ const PendingRequests = () => {
       {
         data.map((curEle)=>{
           return  <tr key={curEle._id}>
+          <td onClick={()=>{setModalIsOpen(true); setMyImage(curEle.photo)}}><img src={`./images/${curEle.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset="" /></td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
@@ -241,6 +252,7 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
+        <th scope='col' ></th>
           <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
           <th scope='col' style={{minWidth:'100px'}}>End Date</th>
           <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
@@ -253,6 +265,7 @@ const PendingRequests = () => {
       {
         data1.map((curEle)=>{
           return  <tr key={curEle._id}>
+          <td onClick={()=>{setModalIsOpen(true); setMyImage(curEle.photo)}}><img src={`./images/${curEle.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset="" /></td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
@@ -280,6 +293,7 @@ const PendingRequests = () => {
 <MDBTable align='middle'   style={{ color: "#a9a9a9", "--bs-input-color": "white",backgroundColor:'white' }}>
       <MDBTableHead light>
         <tr>
+        <th scope='col' ></th>
           <th scope='col' style={{minWidth:'100px'}}>Starting Date</th>
           <th scope='col' style={{minWidth:'100px'}}>End Date</th>
           <th scope='col' style={{minWidth:'100px'}}>Submission Date</th>
@@ -292,7 +306,8 @@ const PendingRequests = () => {
       {
         data2.map((curEle)=>{
           return  <tr key={curEle._id}>
-          <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
+          <td onClick={()=>{setModalIsOpen(true); setMyImage(curEle.photo)}}><img src={`./images/${curEle.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset="" /></td>
+           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.StartingDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.EndDate}</td>
           <td style={{minWidth:'100px',textAlign:'center'}}>{curEle.SubmissionDate}</td>
           <td style={{minWidth:'150px',textAlign:'center'}}>{curEle.UserID+' - '+curEle?.userdata[0]?.email}</td>
@@ -314,6 +329,41 @@ const PendingRequests = () => {
     </MDBTable>
 
 </div>
+<ReactModal  appElement={document.body}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Update User Details"
+        className="Modal"
+        style={{
+          overlay: {
+      position: 'fixed',
+      top: 200,
+      left: 300,
+      right: 400,
+      bottom: 100,
+      borderRadius: '10px',
+      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+    },
+    content: {
+      position: 'absolute',
+      top: '40px',
+      left: '40px',
+      right: '40px',
+      bottom: '40px',
+      border: '1px solid #ccc',
+      background: '#fff',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      padding: '20px'
+    }
+        }}
+      >
+      <Button variant="primary" style={{backgroundColor:'blue !important'}} size="sm" className="Buttons" onClick={()=>setModalIsOpen(false)}>Close</Button>
+        <img src={`./images/${myimage}`} alt="img" width={650} height={350} srcset="" />
+      
+        </ReactModal>
 </Container>
     </div>
   )

@@ -18,15 +18,26 @@ const ManageReq = () => {
   const [internet, setInternet] = useState("");
   const [startingDate, setStartingDate] = useState("");
   const [enddate, setEnddate] = useState("");
+  const [file,setFile]=useState(null)
 
   const sendReq = async (usb, cd, internet) => {
-    
-     if (usb) {
-      const res = await axios.post(URL+"/Usb_Submission", {
-        StartingDate: startingDate,
-        EndDate: enddate,
-        UserID: localStorage.getItem("User_id")
+    if(file===null){
+      swal({
+        position: "center",
+        icon: "error",
+        title: 'Select Image',
+        timer: 3000,
+       
       });
+    }else{
+      
+    const formData = new FormData();
+		formData.append("image",file)
+		 formData.append("StartingDate",startingDate)
+		 formData.append("EndDate",enddate)
+		 formData.append("UserID",localStorage.getItem("User_id"))
+     if (usb) {
+      const res = await axios.post(URL+"/Usb_Submission", formData);
       if(res.data.message === "USB Submission Successfully"){
      
         swal({
@@ -56,11 +67,7 @@ const ManageReq = () => {
       }
   }
   if (cd) {
-    const res = await axios.post(URL+"/CD_Submission", {
-      StartingDate: startingDate,
-      EndDate: enddate,
-      UserID: localStorage.getItem("User_id")
-    });
+    const res = await axios.post(URL+"/CD_Submission",formData);
     if(res.data.message === "CD Submission Successfully"){
    
       swal({
@@ -91,11 +98,7 @@ const ManageReq = () => {
 
   }
   if (internet) {
-    const res = await axios.post(URL+"/Internet_Submission", {
-      StartingDate: startingDate,
-      EndDate: enddate,
-      UserID: localStorage.getItem("User_id")
-    });
+    const res = await axios.post(URL+"/Internet_Submission",formData);
     if(res.data.message === "Internet Submission Successfully"){
      
       swal({
@@ -124,6 +127,7 @@ const ManageReq = () => {
         }, 2000);
     }
   }
+}
   };
   
   
@@ -202,6 +206,11 @@ const ManageReq = () => {
        
          
          <input type="date" id="to-date" name="to-date" style={{ marginLeft: "80px",borderRadius: "10px",width: "150px", height:"20px", fontFamily:"sans-serif",fontSize:"15px" }} value={enddate} onChange={e => setEnddate(e.target.value)}/>
+         </div>
+  <div style={{marginTop:'20px'}}>
+         <label for="from-date" style={{ fontSize: '20px', color: "white" }}>Upload Image:</label>
+         
+         <input type="file" name="image" placeholder="Select a image" style={{ marginLeft: "80px",borderRadius: "10px",width: "250px", height:"20px", fontFamily:"sans-serif",fontSize:"15px" }}  onChange={e => setFile(e.target.files[0])}/>
          </div>
          <br/>
          <br/>

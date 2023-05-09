@@ -4,12 +4,18 @@ import axios from 'axios';
 import { URL } from '../http';
 import { MDBDataTableV5 } from "mdbreact";
 import Navigation from './Navigation';
-
+import ReactModal from "react-modal";
+import Button from 'react-bootstrap/Button';
 
 const ApprovedRequests = () => {
     const [data, setData] = useState([]);
     const [data1, setData1] = useState([]);
     const [data2, setData2] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [myimage,setMyImage]=useState('')
+    const closeModal = () => {
+      setModalIsOpen(false);
+    };
     const allApprovedRequests=async()=>{
         try {
           const response=await axios.get(URL+"/usbapproval_list")  
@@ -58,6 +64,12 @@ const ApprovedRequests = () => {
         data={{
           columns: [
             {
+              
+              label: "image",
+              field: "myimg",
+
+            },
+            {
               label: "Starting date",
               field: "startdate",
               width: 150,
@@ -97,6 +109,7 @@ const ApprovedRequests = () => {
            rows: data.map((items) => {
             return {
               startdate: items.StartingDate ,
+              myimg:(<img onClick={()=>{setModalIsOpen(true); setMyImage(items.photo)}} src={`./images/${items.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset=""  />),
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
@@ -123,6 +136,12 @@ const ApprovedRequests = () => {
         pagesAmount={4}
         data={{
           columns: [
+            {
+              
+              label: "image",
+              field: "myimg",
+
+            },
             {
               label: "Starting date",
               field: "startdate",
@@ -162,6 +181,7 @@ const ApprovedRequests = () => {
            rows: data1.map((items) => {
             return {
               startdate: items.StartingDate ,
+              myimg:(<img onClick={()=>{setModalIsOpen(true); setMyImage(items.photo)}} src={`./images/${items.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset=""  />),
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
@@ -187,6 +207,12 @@ const ApprovedRequests = () => {
         pagesAmount={4}
         data={{
           columns: [
+            {
+              
+              label: "image",
+              field: "myimg",
+
+            },
             {
               label: "Starting date",
               field: "startdate",
@@ -227,6 +253,7 @@ const ApprovedRequests = () => {
            rows: data2.map((items) => {
             return {
               startdate: items.StartingDate ,
+              myimg:(<img onClick={()=>{setModalIsOpen(true); setMyImage(items.photo)}} src={`./images/${items.photo}`} width={75} height={75} style={{borderRadius:'50%'}} alt="" srcset=""  />),
               enddate: items.EndDate,
               submissiondate: items.SubmissionDate,
               appdate:items.ApprovalDate,
@@ -242,6 +269,41 @@ const ApprovedRequests = () => {
         searchBottom={false}
       />
 </div>
+<ReactModal  appElement={document.body}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Update User Details"
+        className="Modal"
+        style={{
+          overlay: {
+      position: 'fixed',
+      top: 200,
+      left: 300,
+      right: 400,
+      bottom: 100,
+      borderRadius: '10px',
+      backgroundColor: 'rgba(255, 255, 255, 0.75)'
+    },
+    content: {
+      position: 'absolute',
+      top: '40px',
+      left: '40px',
+      right: '40px',
+      bottom: '40px',
+      border: '1px solid #ccc',
+      background: '#fff',
+      overflow: 'auto',
+      WebkitOverflowScrolling: 'touch',
+      borderRadius: '4px',
+      outline: 'none',
+      padding: '20px'
+    }
+        }}
+      >
+      <Button variant="primary" style={{backgroundColor:'blue !important'}} size="sm" className="Buttons" onClick={()=>setModalIsOpen(false)}>Close</Button>
+        <img  src={`./images/${myimage}`} alt="img" width={650} height={350} srcset="" />
+      
+        </ReactModal>
 </Container>
     </div>
   )

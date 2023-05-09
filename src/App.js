@@ -13,6 +13,7 @@ import ApprovedRequests from './Components/ApprovedRequests';
 import RejectedRequests from './Components/RejectedRequests';
 import PendingRequests from './Components/PendingRequests';
 import ViewUsers from './Components/ViewUsers';
+import Reminders from './Components/Reminders';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
       <Route path="/Approval" element={<Approval />} />
       <Route path='/RequestHist' element = {<RequestHist/>} />
       <Route path='/ViewUsers' element = {<ViewUsers/>} />
+      <Route path='/Reminders' element = {<Reminders/>} />
       </>
       
  
